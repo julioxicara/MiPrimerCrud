@@ -1,0 +1,56 @@
+﻿@model AprendiendoConejo.Models.usuario
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>usuario</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.correoelectronico)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.correoelectronico)
+            @Html.ValidationMessageFor(model => model.correoelectronico)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pass)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pass)
+            @Html.ValidationMessageFor(model => model.pass)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.usuario1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.usuario1)
+            @Html.ValidationMessageFor(model => model.usuario1)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @ViewBag.Error 
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
